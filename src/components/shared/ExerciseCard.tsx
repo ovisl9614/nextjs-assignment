@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import {
   addExercise,
   PLAN_KEY,
@@ -42,21 +41,19 @@ export default function ExerciseCard({
   return (
     <article className="overflow-hidden rounded-xl border border-[#252932] bg-[#15171c]">
 
-      {/* Image */}
-      <div className="relative h-[180px] w-full">
-        <Image
+      {/* IMAGE */}
+      <div className="h-[180px] w-full overflow-hidden">
+        <img
           src={exercise.image}
           alt={exercise.name}
-          fill
-          className="object-cover"
-          unoptimized
+          className="h-full w-full object-cover"
         />
       </div>
 
-      {/* Content */}
+      {/* CONTENT */}
       <div className="p-4">
 
-        {/* Muscle groups */}
+        {/* TAGS */}
         <div className="mb-3 flex flex-wrap gap-1.5">
           {exercise.muscleGroups.map((muscle) => (
             <span
@@ -68,30 +65,30 @@ export default function ExerciseCard({
           ))}
         </div>
 
-        {/* Name */}
-        <h3 className="text-sm font-black uppercase text-white">
+        {/* TITLE */}
+        <h3 className="text-[12px] font-black uppercase text-white">
           {exercise.name}
         </h3>
 
-        {/* Equipment */}
+        {/* EQUIPMENT */}
         <p className="mt-1 text-[9px] text-[#777c87]">
           {exercise.equipment}
         </p>
 
-        {/* Stats */}
-        <div className="mt-4 flex items-center gap-3 text-[9px] text-[#777c87]">
+        {/* STATS */}
+        <div className="mt-4 flex items-center gap-3 text-[8px] text-[#777c87]">
           <span>◷ {exercise.duration} min</span>
           <span>🔥 {exercise.caloriesBurned} kcal</span>
           <span>★ {exercise.rating}</span>
         </div>
 
-        {/* Buttons */}
+        {/* BUTTONS */}
         <div className="mt-4 flex gap-2">
 
           <button
             type="button"
             onClick={handleAddToPlan}
-            className="flex-1 rounded-md bg-[#ccff00] px-3 py-2 text-[9px] font-bold uppercase text-black transition hover:opacity-80"
+            className="flex-1 rounded-md bg-[#ccff00] px-3 py-2 text-[9px] font-bold uppercase text-black transition-opacity hover:opacity-80"
           >
             Add to Plan
           </button>
@@ -99,7 +96,7 @@ export default function ExerciseCard({
           <button
             type="button"
             onClick={handleSave}
-            className="rounded-md border border-[#3b3d43] px-3 py-2 text-[9px] font-bold uppercase text-white transition hover:bg-white hover:text-black"
+            className="rounded-md border border-[#3b3d43] px-3 py-2 text-[9px] font-bold uppercase text-white transition-colors hover:bg-white hover:text-black"
           >
             Save
           </button>

@@ -1,30 +1,11 @@
-import React from 'react';
+import Hero from "@/components/shared/Hero";
+import ExerciseLibrary from "@/components/shared/ExerciseLibrary";
 
-import Hero from '@/components/shared/Hero';
-
-const page = () => {
+export default function Home() {
   return (
-    <div>
-
-      <main>
-        <Hero />
-
-          <section
-             id="library"
-             className='mx-auto max-w-[1400px] px-4 py-10'>
-            <h2 className='text-2xl font-black text-white'>
-              THE LIBRARY
-            </h2>
-
-            <p className='mt-1 text-sm text-gray-400'>
-              Twelve lifts covering every major muscle group.
-            </p>
-          </section>
-        
-      </main>
-  
-    </div>
+    <main className="min-h-screen bg-[#0b0c0e]">
+      <Hero />
+      <ExerciseLibrary />
+    </main>
   );
-};
-
-export default page;
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ExerciseCard from "./ExerciseCard";
 
 type Exercise = {
@@ -22,62 +22,56 @@ type Exercise = {
 export default function ExerciseLibrary() {
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
-    async function loadExercises() {
-      try {
-        const response = await fetch("/api/exercises");
-
-        if (!response.ok) {
-          throw new Error("API request failed");
+    fetch("/api/exercises")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("API failed");
         }
 
-        const data = await response.json();
-
+        return res.json();
+      })
+      .then((data) => {
+        console.log("EXERCISES FROM API:", data);
         setExercises(data);
-      } catch (error) {
-        console.error("Failed to load exercises:", error);
-        setError(true);
-      } finally {
+      })
+      .catch((error) => {
+        console.error("EXERCISE ERROR:", error);
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    }
-
-    loadExercises();
+      });
   }, []);
 
   return (
     <section
       id="library"
-      className="bg-[#0b0c0e] px-4 py-12 sm:px-6 lg:px-10"
+      className="relative z-20 w-full bg-[#0b0c0e] px-4 py-16 sm:px-6 lg:px-8"
     >
       <div className="mx-auto w-full max-w-[1400px]">
+        <h2 className="mb-2 text-3xl font-black uppercase text-white">
+          THE LIBRARY
+        </h2>
 
-        <div className="mb-6">
-          <h2 className="text-2xl font-black uppercase text-white sm:text-3xl">
-            The Library
-          </h2>
-
-          <p className="mt-1 text-[10px] text-[#777c87]">
-            Twelve lifts covering every major muscle group.
-          </p>
-        </div>
+        <p className="mb-8 text-sm text-gray-500">
+          Twelve lifts covering every major muscle group.
+        </p>
 
         {loading && (
-          <p className="py-10 text-center text-xs text-[#777c87]">
+          <div className="py-20 text-center text-white">
             Loading workouts...
-          </p>
+          </div>
         )}
 
-        {error && (
-          <p className="py-10 text-center text-xs text-red-400">
-            Failed to load workouts.
-          </p>
+        {!loading && exercises.length === 0 && (
+          <div className="rounded-xl border border-red-500 bg-[#15171c] p-10 text-center text-white">
+            No exercises loaded.
+          </div>
         )}
 
-        {!loading && !error && exercises.length > 0 && (
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {!loading && exercises.length > 0 && (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {exercises.map((exercise) => (
               <ExerciseCard
                 key={exercise.id}
@@ -86,7 +80,6 @@ export default function ExerciseLibrary() {
             ))}
           </div>
         )}
-
       </div>
     </section>
   );

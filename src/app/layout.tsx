@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Oswald, Inter } from "next/font/google";
+import Navbar from "@/components/shared/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,8 +34,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <h2 className={`${oswald.className} font-bold text-white text-2xl bg-black`}>FITLOG</h2>
+        
+        {/* <h2 className={`${oswald.className} font-bold text-white text-2xl bg-black`}>FITLOG</h2> */}
+
+        <Navbar />
+
         {children}
+        
         <h2 className={`${oswald.className} font-bold text-white text-2xl bg-black`}>FITLOG</h2>
 
         </body>

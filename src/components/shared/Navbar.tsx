@@ -4,12 +4,38 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
-const planCount = 0;
-const savedCount = 0;
+import {
+  getStoredExercises,
+  PLAN_KEY,
+  SAVED_KEY,
+} from "@/lib/exercise-storage";
 
 const Navbar = () => {
   const pathname = usePathname();
+
+  const [planCount, setPlanCount] = React.useState(0);
+  const [savedCount, setSavedCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const updateCounts = () => {
+      setPlanCount(getStoredExercises(PLAN_KEY).length);
+      setSavedCount(getStoredExercises(SAVED_KEY).length);
+    };
+
+    updateCounts();
+
+    window.addEventListener(
+      "fitlog-storage-change",
+      updateCounts
+    );
+
+    return () => {
+      window.removeEventListener(
+        "fitlog-storage-change",
+        updateCounts
+      );
+    };
+  }, []);
 
   return (
     <header className="w-full border-b border-[#24262c] bg-[#0b0c0e]">
@@ -77,7 +103,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/my-plan"
+            href="/saved"
             className="flex items-center gap-1.5 text-[10px] text-[#8b8d93] transition-colors hover:text-white"
           >
             <span>Saved</span>

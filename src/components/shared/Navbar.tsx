@@ -41,7 +41,7 @@ const Navbar = () => {
     <header className="w-full border-b border-[#24262c] bg-[#0b0c0e]">
       <nav className="mx-auto flex min-h-[64px] w-full max-w-[1400px] items-center justify-between px-4 sm:px-6">
 
-        {/* Top Left */}
+        
         <div>
           <Link
             href="/"
@@ -103,7 +103,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/saved"
+            href="/my-plan"
             className="flex items-center gap-1.5 text-[10px] text-[#8b8d93] transition-colors hover:text-white"
           >
             <span>Saved</span>

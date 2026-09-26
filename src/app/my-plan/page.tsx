@@ -195,8 +195,7 @@ export default function MyPlanPage() {
 
             <Link
               href="/#library"
-              className="mt-5 inline-block rounded-md bg-[#ccff00] px-5 py-3 text-[9px] font-bold uppercase text-black"
-            >
+              className="mt-5 inline-block rounded-md bg-[#ccff00] px-5 py-3 text-[9px] font-bold uppercase text-black">
               Browse Workouts
             </Link>
 
@@ -213,7 +212,7 @@ export default function MyPlanPage() {
                 className="flex items-center gap-4 rounded-xl border border-[#252932] bg-[#15171c] p-3"
               >
 
-                {/* IMAGE */}
+                
 
                 <img
                   src={exercise.image}
@@ -222,7 +221,6 @@ export default function MyPlanPage() {
                 />
 
 
-                {/* INFO */}
 
                 <div className="min-w-0 flex-1">
 
@@ -271,8 +269,7 @@ export default function MyPlanPage() {
                     handleRemove(exercise.id)
                   }
                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[#777c87] transition hover:bg-red-500/10 hover:text-red-400"
-                  aria-label="Remove exercise"
-                >
+                  aria-label="Remove exercise">
                   ×
                 </button>
 

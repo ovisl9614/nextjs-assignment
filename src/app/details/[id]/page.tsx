@@ -24,32 +24,40 @@ const DetailsPage = () => {
   const [isInPlan, setIsInPlan] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
 
-  // Fetch exercise
-  useEffect(() => {
-    const fetchExercise = async () => {
-      try {
-        const response = await fetch(
-          `https://api.abcz.workers.dev/api/fitlog/${id}`
-        );
+ 
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch exercise");
-        }
+// Fetch exercise
+useEffect(() => {
+  const fetchExercise = async () => {
+    try {
+      const response = await fetch("/api/exercises");
 
-        const data = await response.json();
-
-        setExercise(data);
-      } catch (error) {
-        console.error("Error:", error);
-      } finally {
-        setLoading(false);
+      if (!response.ok) {
+        throw new Error("Failed to fetch exercises");
       }
-    };
 
-    fetchExercise();
-  }, [id]);
+      const data = await response.json();
 
-  // Check Plan and Saved status
+      const foundExercise = data.find(
+        (item: StoredExercise) => item.id === id
+      );
+
+      setExercise(foundExercise || null);
+    } catch (error) {
+      console.error("Error:", error);
+      setExercise(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchExercise();
+}, [id]);
+
+  
+
+
+
   useEffect(() => {
     if (!id) return;
 
@@ -69,7 +77,10 @@ const DetailsPage = () => {
     
   }, [id]);
 
-  // Add / Remove from Plan
+  
+
+
+
   const handlePlan = () => {
     if (!exercise) return;
 
@@ -107,6 +118,9 @@ const DetailsPage = () => {
     }
   };
 
+
+
+
   // Loading
   if (loading) {
     return (
@@ -115,6 +129,9 @@ const DetailsPage = () => {
       </main>
     );
   }
+
+
+
 
   // Not found
   if (!exercise) {
@@ -127,6 +144,11 @@ const DetailsPage = () => {
 
   return (
     <main className="min-h-screen bg-[#0d0f0e] text-white">
+
+
+
+
+
 
        {/* Details Section  */}
       <section className="mx-auto max-w-[1200px] px-5 py-10">
@@ -147,18 +169,20 @@ const DetailsPage = () => {
 
           <div>
 
-            {/* Title */}
+    \
             <h1 className="text-4xl font-black uppercase">
               {exercise.name}
             </h1>
 
-            {/* Description */}
+           
+
             <p className="mt-3 text-sm leading-6 text-gray-400">
               {exercise.description}
             </p>
 
 
-            {/* Muscle Groups */}
+           
+           
             <div className="mt-4 flex flex-wrap gap-2">
 
               {exercise.muscleGroups?.map(
@@ -178,7 +202,10 @@ const DetailsPage = () => {
 
             <div className="mt-6 overflow-hidden rounded-xl border border-gray-800 bg-[#15191d]">
 
-              {/* Equipment */}
+             
+             
+
+
               <div className="flex justify-between border-b border-gray-800 px-5 py-4">
                 <span className="text-xs uppercase text-gray-500">
                   Equipment
@@ -201,7 +228,10 @@ const DetailsPage = () => {
                 </span>
               </div>
 
-              {/* Sets */}
+            
+            
+
+
               <div className="flex justify-between border-b border-gray-800 px-5 py-4">
                 <span className="text-xs uppercase text-gray-500">
                   Sets
@@ -213,7 +243,9 @@ const DetailsPage = () => {
               </div>
 
 
-              {/* Reps */}
+      
+      
+
               <div className="flex justify-between border-b border-gray-800 px-5 py-4">
                 <span className="text-xs uppercase text-gray-500">
                   Reps</span>
@@ -224,7 +256,9 @@ const DetailsPage = () => {
               </div>
 
 
-              {/* Duration */}
+          
+          
+
               <div className="flex justify-between border-b border-gray-800 px-5 py-4">
                 <span className="text-xs uppercase text-gray-500">
                   Duration
@@ -235,7 +269,9 @@ const DetailsPage = () => {
                 </span>
               </div>
 
-              {/* Calories */}
+        
+        
+
               <div className="flex justify-between border-b border-gray-800 px-5 py-4">
                 <span className="text-xs uppercase text-gray-500">
                   Calories
@@ -247,7 +283,9 @@ const DetailsPage = () => {
               </div>
 
           
-          {/* rating */}
+      
+      
+
               <div className="flex justify-between px-5 py-4">
                 <span className="text-xs uppercase text-gray-500">
                   Rating
@@ -298,6 +336,8 @@ const DetailsPage = () => {
                   ? "✓ Added to today's plan"
                   : "Add to today's plan"}
               </button>
+
+
 
               {/* SAVE BUTTON */}
               <button

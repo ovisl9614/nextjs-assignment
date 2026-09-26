@@ -30,7 +30,7 @@ export default function Footer() {
 
                 </div>
 
-                <p className='text-[7px] text-[#777c87] sm:text-[8px]'>© 2026 Fitlog - Workout Library. Train hard, log honest.</p>
+                <p className='text-[7px] text-[#777c87] sm:text-[8px]'>© 2026 FitLog — Workout Library. Train hard, log honest.</p>
             </div>
         </footer>
     );

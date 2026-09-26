@@ -3,11 +3,11 @@
 import Link from "next/link";
 import React from "react";
 
-import {
-  addExercise,
-  PLAN_KEY,
-  SAVED_KEY,
-} from "@/lib/exercise-storage";
+// import {
+//   addExercise,
+//   PLAN_KEY,
+//   SAVED_KEY,
+// } from "@/lib/exercise-storage";
 
 type Exercise = {
   id: number;
@@ -33,13 +33,7 @@ export default function ExerciseCard({
   exercise,
 }: ExerciseCardProps) {
 
-  const handleAddToPlan = () => {
-    addExercise(PLAN_KEY, exercise);
-  };
-
-  const handleSave = () => {
-    addExercise(SAVED_KEY, exercise);
-  };
+ 
 
   return (
     <article className="overflow-hidden rounded-xl border border-[#252932] bg-[#15171c]">
@@ -100,32 +94,7 @@ export default function ExerciseCard({
 
   
 
-      <div className="px-4 pb-4">
 
-        <div className="flex gap-2">
-
-      
-
-          <button
-            type="button"
-            onClick={handleAddToPlan}
-            className="flex-1 rounded-md bg-[#ccff00] px-3 py-2 text-[9px] font-bold uppercase text-black transition-opacity hover:opacity-80"
-          >
-            Add to Plan
-          </button>
-
-
-          <button
-            type="button"
-            onClick={handleSave}
-            className="rounded-md border border-[#3b3d43] px-3 py-2 text-[9px] font-bold uppercase text-white transition-colors hover:bg-white hover:text-black"
-          >
-            Save
-          </button>
-
-        </div>
-
-      </div>
 
     </article>
   );

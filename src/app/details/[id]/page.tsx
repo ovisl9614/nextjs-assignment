@@ -66,6 +66,7 @@ const DetailsPage = () => {
 
     setIsInPlan(alreadyInPlan);
     setIsSaved(alreadySaved);
+    
   }, [id]);
 
   // Add / Remove from Plan

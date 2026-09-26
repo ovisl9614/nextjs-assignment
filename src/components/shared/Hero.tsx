@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+
 import { Oswald } from "next/font/google";
 
 const oswald = Oswald({
@@ -33,13 +33,10 @@ const Hero = () => {
           </p>
 
           
-          <Link
-            href="#library"
-            className="mt-6 inline-flex items-center gap-2 bg-[#ccff00] px-4 py-2 text-[10px] font-black uppercase text-black transition rounded hover:bg-[#d9ff4d]"
-          >
-            BROWSE WORKOUTS
-            
-          </Link>
+         <a
+     href="#library"
+       className="mt-6 inline-flex items-center gap-2 rounded bg-[#ccff00] px-4 py-2 text-[10px] font-black uppercase text-black transition hover:bg-[#d9ff4d]">
+       BROWSE WORKOUTS</a>
 
     </div>
 

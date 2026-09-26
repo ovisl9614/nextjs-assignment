@@ -61,7 +61,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Top Middle */}
+        
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 sm:flex">
 
           <Link

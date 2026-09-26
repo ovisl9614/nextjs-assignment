@@ -47,20 +47,22 @@ export default function ExerciseLibrary() {
   return (
     <section
       id="library"
-      className="relative z-20 w-full bg-[#0b0c0e] px-4 py-16 sm:px-6 lg:px-8"
-    >
+      className="relative z-20 w-full bg-[#0b0c0e] px-4 py-16 sm:px-6 lg:px-8">
+
       <div className="mx-auto w-full max-w-[1400px]">
         <h2 className="mb-2 text-3xl font-black uppercase text-white">
-          THE LIBRARY
-        </h2>
+          THE LIBRARY</h2>
 
         <p className="mb-8 text-sm text-gray-500">
-          Twelve lifts covering every major muscle group.
-        </p>
+          Twelve lifts covering every major muscle group.</p>
 
         {loading && (
-          <div className="py-20 text-center text-white">
-            Loading workouts...
+          <div className="flex flex-col items-center justify-center py-20">
+
+          <div className="h-10 ww-10 animate-spin rounded-tr-full border-4 border-[#252932] border-t-[#ccff00]"></div>
+
+          <p className="mt-4 text-sm text-gray-400">Loading workouts...</p>
+            
           </div>
         )}
 

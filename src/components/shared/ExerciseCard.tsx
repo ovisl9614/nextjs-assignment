@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
+
 import {
   addExercise,
   PLAN_KEY,
@@ -30,6 +32,7 @@ type ExerciseCardProps = {
 export default function ExerciseCard({
   exercise,
 }: ExerciseCardProps) {
+
   const handleAddToPlan = () => {
     addExercise(PLAN_KEY, exercise);
   };
@@ -41,49 +44,72 @@ export default function ExerciseCard({
   return (
     <article className="overflow-hidden rounded-xl border border-[#252932] bg-[#15171c]">
 
-      {/* IMAGE */}
-      <div className="h-[180px] w-full overflow-hidden">
-        <img
-          src={exercise.image}
-          alt={exercise.name}
-          className="h-full w-full object-cover"
-        />
-      </div>
+      {/* ================= IMAGE ================= */}
 
-      {/* CONTENT */}
-      <div className="p-4">
+      <Link href={`/details/${exercise.id}`}>
 
-        {/* TAGS */}
-        <div className="mb-3 flex flex-wrap gap-1.5">
-          {exercise.muscleGroups.map((muscle) => (
-            <span
-              key={muscle}
-              className="rounded-full bg-[#ccff00] px-2 py-1 text-[8px] font-bold uppercase text-black"
-            >
-              {muscle}
-            </span>
-          ))}
+        <div className="h-[180px] w-full overflow-hidden cursor-pointer">
+          <img
+            src={exercise.image}
+            alt={exercise.name}
+            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          />
         </div>
 
-        {/* TITLE */}
-        <h3 className="text-[12px] font-black uppercase text-white">
-          {exercise.name}
-        </h3>
+        {/* ================= WORKOUT INFO ================= */}
 
-        {/* EQUIPMENT */}
-        <p className="mt-1 text-[9px] text-[#777c87]">
-          {exercise.equipment}
-        </p>
+        <div className="p-4">
 
-        {/* STATS */}
-        <div className="mt-4 flex items-center gap-3 text-[8px] text-[#777c87]">
-          <span>◷ {exercise.duration} min</span>
-          <span>🔥 {exercise.caloriesBurned} kcal</span>
-          <span>★ {exercise.rating}</span>
+          {/* Muscle Groups */}
+
+          <div className="mb-3 flex flex-wrap gap-1.5">
+
+            {exercise.muscleGroups.map((muscle) => (
+              <span
+                key={muscle}
+                className="rounded-full bg-[#ccff00] px-2 py-1 text-[8px] font-bold uppercase text-black"
+              >
+                {muscle}
+              </span>
+            ))}
+
+          </div>
+
+          {/* Workout Name */}
+
+          <h3 className="text-[12px] font-black uppercase text-white">
+            {exercise.name}
+          </h3>
+
+          {/* Equipment */}
+
+          <p className="mt-1 text-[9px] text-[#777c87]">
+            {exercise.equipment}
+          </p>
+
+          {/* Stats */}
+
+          <div className="mt-4 flex items-center gap-3 text-[8px] text-[#777c87]">
+
+            <span>◷ {exercise.duration} min</span>
+
+            <span>🔥 {exercise.caloriesBurned} kcal</span>
+
+            <span>★ {exercise.rating}</span>
+
+          </div>
+
         </div>
 
-        {/* BUTTONS */}
-        <div className="mt-4 flex gap-2">
+      </Link>
+
+      {/* ================= BUTTONS ================= */}
+
+      <div className="px-4 pb-4">
+
+        <div className="flex gap-2">
+
+          {/* ADD TO PLAN */}
 
           <button
             type="button"
@@ -92,6 +118,8 @@ export default function ExerciseCard({
           >
             Add to Plan
           </button>
+
+          {/* SAVE */}
 
           <button
             type="button"
@@ -104,6 +132,7 @@ export default function ExerciseCard({
         </div>
 
       </div>
+
     </article>
   );
 }

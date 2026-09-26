@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Oswald, Inter } from "next/font/google";
 import Navbar from "@/components/shared/Navbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,6 +44,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         
         <h2 className={`${oswald.className} font-bold text-white text-2xl bg-black`}>FITLOG</h2>
+
+
+         <ToastContainer
+         position="top-right"
+           autoClose={2000}
+            theme="dark"/>
 
         </body>
     </html>

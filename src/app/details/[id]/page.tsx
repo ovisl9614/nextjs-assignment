@@ -53,7 +53,7 @@ const DetailsPage = () => {
   useEffect(() => {
     if (!id) return;
 
-    const planExercises = getStoredExercises(PLAN_KEY);
+  const planExercises = getStoredExercises(PLAN_KEY);
     const savedExercises = getStoredExercises(SAVED_KEY);
 
     const alreadyInPlan = planExercises.some(
@@ -72,7 +72,7 @@ const DetailsPage = () => {
   const handlePlan = () => {
     if (!exercise) return;
 
-    if (isInPlan) {
+  if (isInPlan) {
       removeExercise(PLAN_KEY, exercise.id);
 
       setIsInPlan(false);
@@ -87,7 +87,7 @@ const DetailsPage = () => {
     }
   };
 
-  // Add / Remove from Saved
+
   const handleSave = () => {
     if (!exercise) return;
 
@@ -127,7 +127,7 @@ const DetailsPage = () => {
   return (
     <main className="min-h-screen bg-[#0d0f0e] text-white">
 
-      {/* Details Section */}
+       {/* Details Section  */}
       <section className="mx-auto max-w-[1200px] px-5 py-10">
 
         <div className="grid gap-8 md:grid-cols-2">

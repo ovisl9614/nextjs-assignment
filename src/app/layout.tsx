@@ -5,6 +5,7 @@ import { Oswald, Inter } from "next/font/google";
 import Navbar from "@/components/shared/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "@/components/shared/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,9 +44,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         {children}
         
-        <h2 className={`${oswald.className} font-bold text-white text-2xl bg-black`}>FITLOG</h2>
+        {/* <h2 className={`${oswald.className} font-bold text-white text-2xl bg-black`}>FITLOG</h2> */}
 
-
+        <Footer />  
          <ToastContainer
          position="top-right"
            autoClose={2000}

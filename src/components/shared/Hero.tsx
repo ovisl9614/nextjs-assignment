@@ -12,7 +12,7 @@ const Hero = () => {
     <section className="mx-auto w-full max-w-[1400px] px-4 sm:px-6">
       <div className="min-h-[300px] rounded-lg bg-[#15171c] px-6 py-8 sm:px-10 md:px-12 md:py-10 lg:flex lg:items-center lg:justify-between">
 
-        {/* LEFT SIDE */}
+       
         <div className="max-w-[600px]">
 
           
@@ -23,14 +23,13 @@ const Hero = () => {
           
           <h1
             className={`${oswald.className} max-w-[550px] text-4xl font-bold uppercase leading-[0.95] tracking-[-1px] text-white sm:text-5xl md:text-6xl`}
-          >
-            TRAIN WITH INTENT. LOG<br />
-            EVERY SET.
+>
+            TRAIN WITH INTENT. LOG <br/>EVERY SET.
           </h1>
 
         
           <p className="mt-4 max-w-[500px] text-xs leading-5 text-gray-400 sm:text-sm">
-            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it <br />into today's plan, and watch the week's work add up.
+            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it <br />into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
 
           

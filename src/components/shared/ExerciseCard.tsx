@@ -44,7 +44,7 @@ export default function ExerciseCard({
   return (
     <article className="overflow-hidden rounded-xl border border-[#252932] bg-[#15171c]">
 
-      {/* ================= IMAGE ================= */}
+
 
       <Link href={`/details/${exercise.id}`}>
 
@@ -56,11 +56,9 @@ export default function ExerciseCard({
           />
         </div>
 
-        {/* ================= WORKOUT INFO ================= */}
-
+        
         <div className="p-4">
 
-          {/* Muscle Groups */}
 
           <div className="mb-3 flex flex-wrap gap-1.5">
 
@@ -75,15 +73,12 @@ export default function ExerciseCard({
 
           </div>
 
-          {/* Workout Name */}
 
           <h3 className="text-[12px] font-black uppercase text-white">
             {exercise.name}
           </h3>
 
-          {/* Equipment */}
-
-          <p className="mt-1 text-[9px] text-[#777c87]">
+        <p className="mt-1 text-[9px] text-[#777c87]">
             {exercise.equipment}
           </p>
 
@@ -103,13 +98,13 @@ export default function ExerciseCard({
 
       </Link>
 
-      {/* ================= BUTTONS ================= */}
+  
 
       <div className="px-4 pb-4">
 
         <div className="flex gap-2">
 
-          {/* ADD TO PLAN */}
+      
 
           <button
             type="button"
@@ -119,7 +114,6 @@ export default function ExerciseCard({
             Add to Plan
           </button>
 
-          {/* SAVE */}
 
           <button
             type="button"

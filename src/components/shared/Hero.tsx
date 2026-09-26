@@ -9,7 +9,7 @@ const oswald = Oswald({
 
 const Hero = () => {
   return (
-    <section className="mx-auto w-full max-w-[1400px] px-4 sm:px-6">
+    <section className="mx-auto mt-5 w-full max-w-[1400px] px-4 sm:px-6">
       <div className="min-h-[300px] rounded-lg bg-[#15171c] px-6 py-8 sm:px-10 md:px-12 md:py-10 lg:flex lg:items-center lg:justify-between">
 
        
@@ -22,7 +22,7 @@ const Hero = () => {
 
           
           <h1
-            className={`${oswald.className} max-w-[550px] text-4xl font-bold uppercase leading-[0.95] tracking-[-1px] text-white sm:text-5xl md:text-6xl`}
+            className={`${oswald.className} max-w-[550px] text-4xl font-bold uppercase leading-[0.95]   tracking-[-1px] text-white sm:text-5xl md:text-6xl`}
 >
             TRAIN WITH INTENT. LOG <br/>EVERY SET.
           </h1>
@@ -41,9 +41,9 @@ const Hero = () => {
             
           </Link>
 
-        </div>
+    </div>
 
-        {/* RIGHT SIDE */}
+        
         <div className="mt-8 flex justify-center lg:mt-0 lg:w-[40%]">
           <Image
             src="/assets/banner.png"

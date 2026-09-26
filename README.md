@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitLog
 
-## Getting Started
+FitLog is a modern fitness workout library where users can explore exercises, view detailed workout information, save exercises, and build a personal workout plan.
 
-First, run the development server:
+## 🚀 Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- REST API
+- React Toastify
+- Local Storage
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Exercise Library
+Browse a collection of workout exercises with information such as muscle groups, equipment, difficulty, duration, calories, sets, reps, and ratings.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Exercise Details
+Open an individual exercise to view its complete information, description, instructions, and workout details.
 
-## Learn More
+### 3. My Plan
+Add exercises to a personal daily workout plan and keep track of the selected exercises.
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Saved Workouts
+Save exercises for later and access them from the Saved section.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 5. Workout Statistics & Notifications
+View total exercises, workout minutes, and calories in the personal plan, with toast notifications for actions such as removing exercises.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+FitLog/
+├── app/
+├── components/
+├── lib/
+├── public/
+├── package.json
+└── README.md
